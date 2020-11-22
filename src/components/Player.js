@@ -36,6 +36,13 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     setSongInfo({ ...songInfo, currentTime: current, duration });
   };
 
+  // handling the time for the song to load
+  const autoPlayHandler = () => {
+    if (isPlaying) {
+      audioRef.current.play();
+    }
+  };
+
   // function for formatting seconds and minutes
   const getTime = (time) => {
     return (
@@ -72,6 +79,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
         <FontAwesomeIcon className="skip-forward" icon={faAngleRight} />
       </div>
       <audio
+        onLoadedData={autoPlayHandler}
         onLoadedMetadata={timeUpdateHandler}
         onTimeUpdate={timeUpdateHandler}
         ref={audioRef}
