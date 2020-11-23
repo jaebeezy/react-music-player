@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div className={`app ${libraryStatus ? "library-active" : ""}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
+      <Song isPlaying={isPlaying} currentSong={currentSong} />
       <Player
         setIsPlaying={setIsPlaying}
         isPlaying={isPlaying}
