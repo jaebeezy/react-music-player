@@ -19,7 +19,7 @@ const LibrarySong = ({ setSongs, id, song, songs, setCurrentSong }) => {
       onClick={songSelectHandler}
       className={`library-song ${song.active ? "selected" : ""}`}
     >
-      <img src={song.cover}></img>
+      <img src={song.cover} alt={song.name}></img>
       <div className="song-description">
         <h3>{song.name}</h3>
         <h4>{song.artist}</h4>

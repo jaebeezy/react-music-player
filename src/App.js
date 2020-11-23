@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Song from "./components/Song";
 import Player from "./components/Player";
 import Library from "./components/Library";
+import Nav from "./components/Nav";
 
 import data from "./data";
 
@@ -14,16 +15,23 @@ const App = () => {
   const [currentSong, setCurrentSong] = useState(songs[0]);
   // state for switching true/false for active
   const [isPlaying, setIsPlaying] = useState(false);
+  // state for library button activity
+  const [libraryStatus, setLibraryStatus] = useState(false);
 
   return (
     <div className="app">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         setIsPlaying={setIsPlaying}
         isPlaying={isPlaying}
         currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
+        songs={songs}
+        setSongs={setSongs}
       />
       <Library
+        libraryStatus={libraryStatus}
         setSongs={setSongs}
         songs={songs}
         setCurrentSong={setCurrentSong}
